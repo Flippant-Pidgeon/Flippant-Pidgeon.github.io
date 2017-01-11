@@ -11,6 +11,12 @@ currentScreen = (function () { //eslint-disable-line
     onClick: function () { nextScreen() }
   })
 
+  function start () {
+  }
+
+  function controls (control = '') {
+  }
+
   function draw (ctx) {
     ctx.fillStyle = '#efefef'
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
@@ -53,6 +59,8 @@ currentScreen = (function () { //eslint-disable-line
   }
 
   return {
+    start: start,
+    controls: controls,
     draw: draw,
     update: update,
     clickable: clickableObjects.getAll()

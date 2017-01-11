@@ -1,32 +1,16 @@
-/* global getCirclePoints canvas mousePos pointDist EntityContainer */
+/* global EntityContainer CardContainer*/
 lobbyScreen = (function (input) { // eslint-disable-line
   var hue = 0
   var direction = 1
   var clickableObjects = new EntityContainer()
+  var cards = new CardContainer()
 
-  var but1 = clickableObjects.createEntity('Button', {})
-  var but2 = clickableObjects.createEntity('Button', {})
+  cards.createEntity('Base', {})
 
   function start () {
-    window.addEventListener('keydown', function (event) {
-      switch (event.keyCode) {
-        case 37: // Left
-          move('left')
-          break
+  }
 
-        case 38: // Up
-          move('up')
-          break
-
-        case 39: // Right
-          move('right')
-          break
-
-        case 40: // Down
-          move('down')
-          break
-      }
-    }, false)
+  function controls (control = '') {
   }
 
   function draw (ctx) {
@@ -36,29 +20,20 @@ lobbyScreen = (function (input) { // eslint-disable-line
     var colorGreen = 'rgb(0,' + hue + ', 0)'
     ctx.font = '18px monospace'
 
-    var center = {x: canvas.width / 2, y: canvas.height / 2}
-    var dir = Math.atan2(mousePos.y - center.y, mousePos.x - center.x)
-    var dist = pointDist(mousePos, center)
-    var points = getCirclePoints(center, dist, 2, -dir / 2)
-    Object.keys(points).forEach(i => {
-      clickableObjects[i].x = i.x
-      clickableObjects[i].y = i.y
-    })
     clickableObjects.draw(ctx, colorGreen)
+    cards.draw(ctx, colorGreen)
   }
 
   function update () {
     hue += 1 * direction
     if (hue > 200) direction = -1
     if (hue < 1) direction = 1
-  }
-
-  function move (dir) {
-    console.log(dir)
+    cards.update()
   }
 
   return {
     start: start,
+    controls: controls,
     draw: draw,
     update: update
   }

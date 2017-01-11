@@ -57,3 +57,23 @@ canvas.addEventListener('mousemove', function (e) {
   mousePos.x = e.clientX - canvasRect.left
   mousePos.y = e.clientY - canvasRect.top
 }, false)
+
+window.addEventListener('keydown', function (event) {
+  switch (event.keyCode) {
+    case 37: // Left
+      currentScreen.controls('left')
+      break
+
+    case 38: // Up
+      currentScreen.controls('up')
+      break
+
+    case 39: // Right
+      currentScreen.controls('right')
+      break
+
+    case 40: // Down
+      currentScreen.controls('down')
+      break
+  }
+}, false)
