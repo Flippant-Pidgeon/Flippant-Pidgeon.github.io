@@ -1,0 +1,19 @@
+{
+  "name": "CCG",
+  "version": "0.0.7",
+  "description": "My Single Player CCG (in development)",
+  "main": "index.html",
+  "devDependencies": {
+    "standard": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IncrementalMe/Tetris-Survival-Of-The-Fittest.git"
+  },
+  "author": "Oliver Robinson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IncrementalMe/Tetris-Survival-Of-The-Fittest/issues"
+  },
+  "homepage": "https://github.com/IncrementalMe/Tetris-Survival-Of-The-Fittest#readme"
+}
