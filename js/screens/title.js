@@ -1,4 +1,4 @@
-/* global canvas currentScreen lobbyScreen EntityContainer */
+/* global canvas EntityContainer */
 currentScreen = (function () { //eslint-disable-line
   var hue = 0
   var direction = 1
@@ -11,11 +11,7 @@ currentScreen = (function () { //eslint-disable-line
     onClick: function () { nextScreen() }
   })
 
-  function start () {
-  }
-
-  function controls (control = '') {
-  }
+  function controls (control) {}
 
   function draw (ctx) {
     ctx.fillStyle = '#efefef'
@@ -49,7 +45,6 @@ currentScreen = (function () { //eslint-disable-line
 
   function nextScreen () {
     currentScreen = lobbyScreen //eslint-disable-line
-    currentScreen.start()
   }
 
   function centerText (ctx, text, y, xOffset = 0) {
@@ -59,7 +54,6 @@ currentScreen = (function () { //eslint-disable-line
   }
 
   return {
-    start: start,
     controls: controls,
     draw: draw,
     update: update,
